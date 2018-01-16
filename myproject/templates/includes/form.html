@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% load form_tags widget_tweaks %}
+=======
+{% load widget_tweaks %}
+>>>>>>> 8fef4b0bb4bd2930c78ef7f0ddcc5b1b878ee835
 
 {% if form.non_field_errors %}
   <div class="alert alert-danger" role="alert">
@@ -10,6 +14,7 @@
 
 {% for field in form %}
   <div class="form-group">
+<<<<<<< HEAD
    {{ field.label_tag }}
 
    {% if form.is_bound %}
@@ -30,3 +35,30 @@
    {% endif %}
   </div>
 {% endfor %}
+=======
+    {{ field.label_tag }}
+
+    {% if form.is_bound %}
+      {% if field.errors %}
+        {% render_field field class="form-control is-invalid" %}
+        {% for error in field.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+      {% else %}
+        {% render_field field class="form-control is-valid" %}
+      {% endif %}
+    {% else %}
+      {% render_field field class="form-control" %}
+    {% endif %}
+
+    {% if field.help_text %}
+      <small class="form-text text-muted">
+         {{ field.help_text|safe }}  <!-- new code here -->
+        
+      </small>
+    {% endif %}
+  </div>
+{% endfor %}
+>>>>>>> 8fef4b0bb4bd2930c78ef7f0ddcc5b1b878ee835

@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 
 from django.contrib.auth.models import User
 from django.urls import reverse
 #from django.core.urlresolvers import reverse
+=======
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+>>>>>>> 8fef4b0bb4bd2930c78ef7f0ddcc5b1b878ee835
 from django.urls import resolve
 from django.test import TestCase
 
 from ..views import signup
 from ..forms import SignUpForm
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8fef4b0bb4bd2930c78ef7f0ddcc5b1b878ee835
 class SignUpTests(TestCase):
     def setUp(self):
         url = reverse('signup')
@@ -24,7 +33,18 @@ class SignUpTests(TestCase):
 
     def test_contains_form(self):
         form = self.response.context.get('form')
+<<<<<<< HEAD
         self.assertIsInstance(form, SignUpForm)    
+=======
+        self.assertIsInstance(form, SignUpForm) 
+
+class SignUpFormTest(TestCase):
+    def test_form_has_fields(self):
+        form = SignUpForm()
+        expected = ['username', 'email', 'password1', 'password2',]
+        actual = list(form.fields)
+        self.assertSequenceEqual(expected, actual)           
+>>>>>>> 8fef4b0bb4bd2930c78ef7f0ddcc5b1b878ee835
 
 class SuccessfulSignUpTests(TestCase):
   
